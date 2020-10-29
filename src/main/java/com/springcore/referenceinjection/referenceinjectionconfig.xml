@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Declaring bean which is to be managed by the bean container -->
+
+	<!-- Initializing the bean which is required by the other bean -->
+
+	<bean class="com.springcore.referenceinjection.User" name="user1"
+		p:userName="Hemendra Singh Chouhan" p:userCity="Indore" />
+
+	<!-- Declaring the bean Student which is also managed by the container and 
+		has a dependency on User bean -->
+
+	<bean class="com.springcore.referenceinjection.Student"
+		name="student1">
+
+		<!-- Initializing the properties for the bean Student -->
+
+		<property name="studentId" value="12345" />
+
+		<!-- Injecting the bean user to the student as the property -->
+
+		<property name="user">
+			<ref bean="user1" />
+		</property>
+
+	</bean>
+
+	<!-- Another Example for the same but here we are changing the initializing 
+		way -->
+
+	<bean class="com.springcore.referenceinjection.User" name="user2"
+		p:userName="Sunny Singh Chouhan" p:userCity="Shahdol" />
+
+	<bean class="com.springcore.referenceinjection.Student"
+		name="student2" p:studentId="123456">
+		<property name="user" ref="user2" />
+	</bean>
+	
+	<!-- Another example for the same but here as well we are changing the initializing way -->
+	
+	<bean class="com.springcore.referenceinjection.User" name="user3" p:userName="Demo Singh Chouhan" p:userCity="Bhopal"/>
+	<bean class="com.springcore.referenceinjection.Student" name="student3" p:studentId="898976" p:user-ref="user3" />
+
+</beans>

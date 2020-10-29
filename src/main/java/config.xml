@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+ <!-- All the classes which we want the bean container to manage are declared in the xml  -->
+ 
+	<!-- Declaring that we have a bean Student with the name student1 which is being managed by the spring bean container. -->
+	
+	<bean class="com.springcore.Student" name="student1">
+
+	<!-- Assigning values to the properties -->
+
+	<!-- This way of initializing the property is setter injection as when we assign the values in here setters are called -->
+
+		<property name="studentName">
+			<value>Hemendra Singh Chouhan</value>
+		</property>
+		
+		<property name="studentCity">
+			<value>Indore</value>
+		</property>
+
+	</bean>
+	
+	<!-- Another way of initializing the values to the properties -->
+	
+	<bean class="com.springcore.Student" name="student2" p:studentName="Hemendra Chouhan" p:studentCity="Bhopal"/>
+	
+	<!-- Another bean which we want to be taken care by the bean container -->
+	
+	<bean class="com.springcore.Session" name="session1">
+	
+	<!-- Properties can also be assigned values by this way -->
+		
+		<property name="sessionId" value="123455"/>
+		<property name="candidateName" value="Sunny Singh Chouhan"/>
+		<property name="score" value="2.5"/>
+	
+	</bean>
+	
+	<bean class="com.springcore.Session" name="session2">
+	</bean>
+
+</beans>

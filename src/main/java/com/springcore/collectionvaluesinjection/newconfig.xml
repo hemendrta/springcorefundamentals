@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Declaring a bean which will be managed by the IOC container or bean container -->
+
+	<bean class="com.springcore.collectionvaluesinjection.Employee"
+		name="employee1">
+
+<!-- Assigning values to the properties -->
+
+<!-- Primitive property -->
+		<property name="employeeName">
+			<value>Hemendra Singh Chouhan</value>
+		</property>
+		
+<!-- Setting the list property type -->
+		
+		<property name="employeeDepartment">
+			<list>
+				<value>Operations</value>
+				<value>IT and Networking</value>
+				<value>Sales</value>
+			</list>
+		</property>
+
+<!-- Setting the set property type -->
+
+		<property name="employeeContact">
+			<set>
+				<value>7999996891</value>
+				<value>7999996892</value>
+				<value>7999996893</value>
+				<value>7999996894</value>
+			</set>
+		</property>
+		
+<!-- Setting the map property type -->
+
+		<property name="assignedManager">
+			<map>
+				<entry key="Rajdeep" value="Director"/>
+				<entry key="Deepa" value="VP"/>
+				<entry key="Rashmi" value="Recruitment Manager"/>
+				<entry key="Bhavya" value="Talent Acquisition"/>
+			</map>		
+		</property>
+
+	</bean>
+
+</beans>
