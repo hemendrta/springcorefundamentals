@@ -1,4 +1,4 @@
-package com.sprincore.constructorreferencebean;
+package com.springcore.constructorreferencebean;
 
 public class Product {
 

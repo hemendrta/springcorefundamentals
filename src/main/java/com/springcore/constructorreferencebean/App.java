@@ -1,4 +1,4 @@
-package com.sprincore.constructorreferencebean;
+package com.springcore.constructorreferencebean;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

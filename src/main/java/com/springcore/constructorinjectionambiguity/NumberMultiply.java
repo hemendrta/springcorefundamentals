@@ -22,7 +22,7 @@ public class NumberMultiply {
 		this.num2 = num2;
 
 	}
-	
+
 	public NumberMultiply(String num1, String num2) {
 
 		System.out.println("String constructor is called");
