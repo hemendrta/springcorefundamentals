@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <!-- Declaration of the reference bean, which needs to be injected to the other bean -->
+ 
+ <bean class="com.sprincore.constructorreferencebean.ProductInfo" name="productInfo">
+ 
+ 	<constructor-arg value="Dell PC"/>
+ 
+ </bean>
+ 
+ <!-- Declaration of the bean which is to be managed by bean container and is dependent on the above bean -->
+ 
+ <bean class="com.sprincore.constructorreferencebean.Product" name="product">
+ 	<constructor-arg value="12345"/>
+ 	<constructor-arg value="Computer"/>
+ 	<constructor-arg ref="productInfo"/> 
+ </bean>
+ 
+ <!-- Another way of initializing the values in the constructor using the -->
+ 
+ <bean class="com.sprincore.constructorreferencebean.ProductInfo" name="productInfo1" c:productInfo="HP Laptop" />
+ 
+ <bean class="com.sprincore.constructorreferencebean.Product" name="product1" c:productId="23421" c:productName="Computer" c:productInfo-ref="productInfo1"/>
+
+</beans>

@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/beans/spring-beans.xsd">
  
+ <!-- Declaring the bean which is to be managed by the bean container -->
  
+ <bean class="com.springcore.constructorinjection.Employee" name="employee">
  
+ <!-- Initializing the parameters by the means of constructor -->
+ 
+ 	<constructor-arg>
+ 		<value>Hemendra Singh Chouhan</value>
+ 	</constructor-arg>
+ 	
+ 	<constructor-arg>
+ 		<value>Indore</value>
+ 	</constructor-arg>
 
+ </bean>
+ 
+ <!-- Declaring the bean which is to be managed by container -->
+ 
+ <bean class="com.springcore.constructorinjection.Employee" name="employee1">
+ 
+ <!-- Another way of initializing the values using the constructor injection -->
+ 
+ 	<constructor-arg value="Sunny Singh Chouhan"/>
+ 	<constructor-arg value="Shahdol"/>
+ 
+ </bean>
+ 
+	<bean class="com.springcore.constructorinjection.Employee" name="employee2"/>
 </beans>
