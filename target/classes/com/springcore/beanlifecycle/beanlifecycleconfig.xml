@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- Declaring the bean class which is to be managed by bean container -->
+	
+	<!-- We have to tell in the tags that we have made init and destroy methods by the name which we are providing so that it has a reference now. -->
+
+	<bean class="com.springcore.beanlifecycle.Employee" name="employee" init-method="init" destroy-method="destroy">
+
+		<property name="employeeName">
+			<value>Hemendra Singh Chouhan</value>
+		</property>
+		
+		<property name="employeeCity">
+			<value>Indore</value>
+		</property>
+
+	</bean>
+	
+	<!-- Declaring the bean class which is to be managed by bean container -->
+	
+	<!-- Example to show that we can have init and destroy methods by different names as well in the bean class it is the referencing which matters. -->
+	
+	<bean class="com.springcore.beanlifecycle.Person" name="person" init-method="atStart" destroy-method="atCleanUp">
+
+		<property name="personName">
+			<value>Hemendra Singh Chouhan</value>
+		</property>
+		
+		<property name="personCity">
+			<value>Indore</value>
+		</property>
+
+	</bean>
+
+</beans>
