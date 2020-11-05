@@ -1,5 +1,9 @@
 package com.springcore.beanlifecycleannotation;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
@@ -53,5 +57,7 @@ public class Employee {
 		System.out.println("Destroy method!!!");
 
 	}
+	
+	
 
 }

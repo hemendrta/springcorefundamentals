@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- Declaring the bean and setting values which are to be managed by the 
+		bean and working as dependency for other bean. -->
+
+	<bean class="com.springcore.autowiring.Address" name="address">
+
+		<property name="city">
+			<value>Indore</value>
+		</property>
+
+		<property name="state">
+			<value>Madhya Pradesh</value>
+		</property>
+
+	</bean>
+	<!-- Autowiring byName will look for a bean on which the bean class is dependent 
+		in the config.xml by the name which is of the variable for this example we 
+		have Address address so it will look for the beans which are by the name 
+		"address" in the config.xml and once the same is found it will be automatically 
+		injected. Important thing to remember is that in case we are using byName 
+		autowiring in that case the bean which is to be injected must have name same 
+		as the name specified in the bean where the dependency is to be injected. -->
+
+	<bean class="com.springcore.autowiring.Person" name="person"
+		autowire="byName"></bean>
+
+	<!-- Declaring the bean Contact which is to be managed by the bean container 
+		and to be injected in the bean Employee, initializing the values to the bean 
+		contact. -->
+	<!-- Here we are using autowiring byType example so we need not to worry 
+		on the name which is declared over here as it would look in the config file 
+		for the type of dependency which is injected and once it find the same it 
+		will inject the same in the dependent bean. -->
+
+	<bean class="com.springcore.autowiring.Contact" name="contact1">
+
+		<property name="contactType">
+			<value>Mobile</value>
+		</property>
+
+		<property name="contactNumber">
+			<value>7999996891</value>
+		</property>
+
+		<property name="contactEmail">
+			<value>hemendra.singh.c@outlook.com</value>
+		</property>
+
+	</bean>
+
+	<bean class="com.springcore.autowiring.Employee" name="employee"
+		autowire="byType"></bean>
+
+	<!-- Declaring the bean which is to be injected to the dependent bean, initializing 
+		the values as well. -->
+
+	<bean class="com.springcore.autowiring.StudentInfo"
+		name="studentInformation">
+
+		<property name="studentName">
+			<value>Hemendra Singh Chouhan</value>
+		</property>
+
+		<property name="studentEmail">
+			<value>hemendra.singh.c@outlook.com</value>
+		</property>
+
+		<property name="studentCity">
+			<value>Shahdol</value>
+		</property>
+
+	</bean>
+
+	<!-- 
+	Declaring the dependent bean in which the above bean is required to 
+		be injected since we are using the constructor autowiring thus it need not 
+		to be referenced by the same name as that in the dependent bean. 
+	-->
+
+	<bean class="com.springcore.autowiring.Student" name="student"
+		autowire="constructor"></bean>
+
+</beans>
