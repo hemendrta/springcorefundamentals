@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+           
+     <context:annotation-config />
+
+	<!-- Declaring the bean which is the dependency for the other bean and which 
+		is to be managed by the bean contianer. -->
+
+	<bean class="com.springcore.annotationautowire.Contact"
+		name="contact">
+
+		<property name="country">
+			<value>India</value>
+		</property>
+
+		<property name="state">
+			<value>Madhya Pradesh</value>
+		</property>
+
+		<property name="city">
+			<value>Indore</value>
+		</property>
+
+		<property name="email">
+			<value>hemendra.singh.c@outlook.com</value>
+		</property>
+
+		<property name="mobile">
+			<value>7999996891</value>
+		</property>
+
+	</bean>
+	
+	<!-- Declaring the dependent bean in which the above bean is injected and since we are using autowring by annotation thus we are not using autowire or reference injection here. -->
+
+	<bean class="com.springcore.annotationautowire.Employee"
+		name="employee"></bean>
+
+</beans>
