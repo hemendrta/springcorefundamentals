@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- Enabling the annotations to use annotation based configuration as we 
+		have used @Autowired -->
+
+	<context:annotation-config />
+
+	<!-- Declaring the bean which is to be injected, managed by bean container, 
+		and setting the properties -->
+
+	<bean class="com.springcore.qualifier.Address" name="address1">
+
+		<property name="country">
+			<value>India</value>
+		</property>
+
+		<property name="state">
+			<value>Madhya Pradesh</value>
+		</property>
+
+		<property name="city">
+			<value>Indore</value>
+		</property>
+
+	</bean>
+
+	<bean class="com.springcore.qualifier.Address" name="address2">
+
+		<property name="country">
+			<value>India</value>
+		</property>
+
+		<property name="state">
+			<value>Madhya Pradesh</value>
+		</property>
+
+		<property name="city">
+			<value>Shahdol</value>
+		</property>
+
+	</bean>
+
+	<!-- Declaring the bean which is dependent on the above bean. Setting the 
+		properties for which it is not dependent. -->
+
+	<bean class="com.springcore.qualifier.Employee" name="employee">
+
+		<property name="employeeName">
+			<value>Hemendra Singh Chouhan</value>
+		</property>
+
+	</bean>
+
+</beans>
