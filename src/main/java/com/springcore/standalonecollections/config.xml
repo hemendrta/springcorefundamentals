@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd
+            http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util-3.1.xsd
+           ">
+
+	<!-- Stand alone list is basically in which we can define a list or collection 
+		outside the bean and can use the same in any of the bean as a property, we 
+		define a util list and provide a id to the same and the we use the same in 
+		the bean in the property as bean injection. The benefit of using the same 
+		is that we can specify the type of the list as well in this case which was 
+		not possible in the case we initialize the same using the property injections 
+		earlier. to use the util collection we have to define the collection outside 
+		the bean as defined in the config file and mentioned are the added things 
+		in config file: http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd 
+		xmlns:util="http://www.springframework.org/schema/util -->
+
+	<!-- Declaring the collection -->
+
+	<!-- The benefit of this is we can have as many beans as we can and we can 
+		just inject the list. -->
+		
+	<!-- Example of Standalone List. -->
+
+	<util:list list-class="java.util.LinkedList" id="departments">
+		<value>Human Resource</value>
+		<value>Information Technology</value>
+		<value>Employee Care</value>
+		<value>Production</value>
+	</util:list>
+
+
+	<util:list list-class="java.util.ArrayList" id="departments1">
+		<value>Human Resource</value>
+		<value>Information Technology</value>
+		<value>Employee Care</value>
+		<value>Production</value>
+	</util:list>
+	
+	<!-- Example of standalone Map. -->
+	
+	<util:map map-class="java.util.HashMap" id="contactinfo">
+		<entry key="1" value="7999996891"/>
+		<entry key="2" value="7999996890"/>
+	</util:map>
+	
+	<util:map map-class="java.util.HashMap" id="contactinfo1">
+		<entry key="1" value="7999996892"/>
+		<entry key="2" value="7999996893"/>
+	</util:map>
+	
+	<!-- Using the collection inside the bean -->
+
+	<bean class="com.springcore.standalonecollections.Employee"
+		name="employee">
+
+		<property name="employeeDepartments">
+
+			<ref bean="departments1" />
+
+		</property>
+
+		<property name="employeeInfo">
+
+			<ref bean="contactinfo1" />
+
+		</property>
+
+	</bean>
+
+	<!-- Another bean with the same list. -->
+
+	<bean class="com.springcore.standalonecollections.Employee"
+		name="employee1">
+
+		<property name="employeeDepartments">
+
+			<ref bean="departments" />
+
+		</property>
+
+		<property name="employeeInfo">
+
+			<ref bean="contactinfo" />
+
+		</property>
+
+	</bean>
+	
+	<!-- Stand alone properties. -->
+	
+	<util:properties id="propertyvalues">
+		<prop key="username">hemendra</prop>
+		<prop key="password">Destiny@2018</prop>
+	</util:properties>
+	
+	<!-- Bean class in which we are putting the properties values. -->
+	
+	<bean class="com.springcore.standalonecollections.Person" name="person">
+	
+		<property name="properties">
+			<ref bean="propertyvalues"/>
+		</property>
+	
+	</bean>
+
+</beans>
