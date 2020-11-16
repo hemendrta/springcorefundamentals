@@ -1,15 +1,15 @@
 # springcorefundamentals
 
-<h5>Basics (Defining a Bean, Containers, XML Tags</h5>
-<h5>Constructor Injection and Ambiguity</h5>
-<h5>Reference Injection</h5>
-<h5>Setter Injection</h5>
-<h5>Collections Injection</h5>
-<h5>Autowiring using XML and Annotations</h5>
-<h5>Bean Life-cycle(XML and Annotations and Interface)</h5>
-<h5>@Qualifier Annotations</h5>
-<h5>@Value Annotation</h5>
-<h5>Standalone Collections</h5>
-<h5>@Component</h5>
-<h5>Bean Scopes</h5>
+<h5>Basics (Defining a Bean, Containers, XML Tags<br>
+Constructor Injection and Ambiguity<br>
+Reference Injection<br>
+Setter Injection<br>
+Collections Injection<br>
+Autowiring using XML and Annotations<br>
+Bean Life-cycle(XML and Annotations and Interface)<br>
+@Qualifier Annotations<br>
+@Value Annotation<br>
+Standalone Collections<br>
+@Component<br>
+Bean Scopes</h5>
    
